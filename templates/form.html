@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if post %}Edit Blog Post{% else %}Create Blog Post{% endif %}{% endblock %}
+
+{% block content %}
+<style>
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        background: #28a745;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: #218838;
+    }
+</style>
+
+<div class="container">
+    <h2>{% if post %}Edit{% else %}Create{% endif %} Blog Post</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" value="{{ post.title|default:'' }}" placeholder="Blog Title" required>
+        <textarea name="content" rows="5" placeholder="Write your blog content here..." required>{{ post.content|default:'' }}</textarea>
+        <button type="submit">{% if post %}Update{% else %}Publish{% endif %}</button>
+    </form>
+
+    <a href="{% url 'blog' %}">Cancel</a>
+</div>
+{% endblock %}

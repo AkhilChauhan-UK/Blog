@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+<!-- Display messages -->
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <p class="message {{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Welcome to My Blog</h1>
+    <p>Discover the latest articles and insights!</p>
+</section>
+
+<!-- Featured Post -->
+{% if featured_post %}
+  <section class="container">
+      <h2>Featured Post</h2>
+      <div class="post">
+          {% if featured_post.image %}
+              <img src="{{ featured_post.image.url }}" alt="{{ featured_post.title }}" class="post-image">
+          {% endif %}
+          <h2><a href="{% url 'blog_detail' featured_post.pk %}">{{ featured_post.title }}</a></h2>
+          <p>{{ featured_post.content|truncatewords:20 }}</p>
+          <small>By {{ featured_post.author.username }} | {{ featured_post.created_at|date:"F d, Y" }}</small>
+      </div>
+  </section>
+{% endif %}
+
+<!-- Latest Blog Posts -->
+<section class="container">
+    <h2>Latest Posts</h2>
+    {% for post in latest_posts %}
+        <div class="post">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+            {% endif %}
+            <h2><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.content|truncatewords:20 }}</p>
+            <small>By {{ post.author.username }} | {{ post.created_at|date:"F d, Y" }}</small>
+        </div>
+    {% empty %}
+        <p>No posts available.</p>
+    {% endfor %}
+</section>
+
+<!-- Categories Section -->
+<section class="container">
+    <h2>Categories</h2>
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'category_posts' category %}">{{ category }}</a></li>
+        {% empty %}
+            <li>No categories found.</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

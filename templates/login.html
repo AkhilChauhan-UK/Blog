@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <!-- From Uiverse.io by nathann09 --> 
+
+    <form class="form" method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <p class="form-title">Login to your account</p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <div class="input-container">
+           <input type="email" name="email" placeholder="Enter email" required>
+           <span></span>
+       </div>
+
+       <div class="input-container">
+           <input type="password" name="password" placeholder="Enter password" required>
+       </div>
+
+       <button type="submit" class="submit">
+         Login in
+       </button>
+
+       <p class="signup-link">
+         No account?
+         <a href="">Sign up</a>
+       </p>
+    </form>
+
+</body>
+</html>

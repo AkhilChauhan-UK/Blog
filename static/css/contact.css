@@ -1,0 +1,98 @@
+/* From Uiverse.io by Yaya12085 */ 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f9fa;
+  }
+.form {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap:25%;
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    padding: 80px;
+    border-radius:15px;
+    box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
+  }
+  
+  .form .title {
+    color: royalblue;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: -1%;
+    margin-bottom: 10%;
+    
+  }
+  
+  .form input {
+    outline: 0;
+    border: 1px solid rgb(219, 213, 213);
+    padding: 8px 14px;
+    border-radius: 8px;
+    width: 100%;
+    height: 50px;
+  }
+  
+  .form textarea {
+    border-radius: 8px;
+    height: 100px;
+    width: 100%;
+    resize: none;
+    outline: 0;
+    padding: 8px 14px;
+    border: 1px solid rgb(219, 213, 213);
+  }
+  
+  .form button {
+    align-self: flex-end;
+    padding: 8px;
+    outline: 0;
+    border: 0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: royalblue;
+    color: #fff;
+    cursor: pointer;
+  }
+      
+/* Social Media Icons */
+.social-links {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 33%;
+    display: flex;
+   padding-left: 2%;
+   
+    
+    
+   
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 24px;
+    color: #333;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    
+}
+
+/* Hover Effects */
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+.social-links a:nth-child(1):hover { color: #ea3355; } /* Instagram */
+.social-links a:nth-child(2):hover { color: #07a2f5; } /* LinkedIn */
+.social-links a:nth-child(3):hover { color: #ebdddd; } /* GitHub */

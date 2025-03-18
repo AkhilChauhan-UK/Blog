@@ -1,0 +1,43 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Contact Us</title>
+</head>
+<body>
+
+    <form method="POST" class="form">
+        {% csrf_token %}
+
+        <div class="title">Contact us</div>
+
+        <!-- Success message inside the form -->
+        {% if success_message %}
+            <p style="color: green; font-weight: bold; text-align: center;">{{ success_message }}</p>
+        {% endif %}
+
+        <input type="email" name="email" placeholder="Your email" class="input" required>
+        <textarea name="message" placeholder="Your message" required></textarea>
+
+        <button type="submit">Submit</button>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/a_k_h_i_l_808" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/akhil-chauhan-b220a62a7" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/AkhilChauhan-UK" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </form>
+
+</body>
+</html>
