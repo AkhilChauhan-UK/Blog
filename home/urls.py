@@ -1,9 +1,9 @@
-from django.urls import path
 from django.contrib import admin
+from django.urls import path
 from home import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # ✅ Ensure admin panel is accessible
+    path('admin', admin.site.urls),  # ✅ Ensure admin panel is accessible
 
     # Authentication
     path('', views.user_login, name='login'),

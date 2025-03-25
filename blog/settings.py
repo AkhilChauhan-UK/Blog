@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^8vmymh*_4lf1in7==d_%%!c&@w0cogdhuzu%x)c0*ypv(gtm^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app"]
+ALLOWED_HOSTS = [".vercel.app", '127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     "whitenoise.runserver_nostatic",  # Add this
+    'whitenoise.runserver_nostatic',  # Add this
     'home',
 ]
 

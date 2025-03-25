@@ -6,7 +6,7 @@ class BlogPost(models.Model):
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(max_length=100, default='General')
-    image = models.ImageField(upload_to='blog_images/', null=True, blank=True)  # ✅ Added image field
+    image = models.ImageField(upload_to='blog_images', null=True, blank=True)  # ✅ Added image field
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
